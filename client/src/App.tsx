@@ -47,8 +47,8 @@ function App() {
     } = useQuery(GET_USER, { variables: { id: 1 } })
     const [newUser] = useMutation(CREATE_USER)
     const [users, setUsers] = useState<any[]>([])
-    const [userName, setUsername] = useState('')
-    const [userAge, setUserAge] = useState('')
+    const [username, setusername] = useState('')
+    const [age, setage] = useState<number>()
     const [trash, setTrash] = useState('trash')
     console.log(data)
     console.log('newOne: ', newsUser)
@@ -62,17 +62,18 @@ function App() {
     }
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
+        console.log(34)
     }
 
     /*   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        e.target.name === 'username' ? setUsername(e.target.value) : setUserAge(e.target.value)
+        e.target.name === 'username' ? setusername(e.target.value) : setage(e.target.value)
     } */
     const addUser = () => {
         newUser({
             variables: {
                 input: {
-                    userName,
-                    userAge,
+                    username,
+                    age,
                 },
             },
         }).then(({ data }) => {
@@ -86,19 +87,19 @@ function App() {
                 <form onSubmit={handleSubmit}>
                     <input
                         onChange={(e) => {
-                            setUsername(e.target.value)
+                            setusername(e.target.value)
                         }}
                         type='text'
                         name='username'
-                        value={userName}
+                        value={username}
                     />
                     <input
                         onChange={(e) => {
-                            setUserAge(e.target.value)
+                            setage(Number(e.target.value))
                         }}
                         type='number'
                         name='age'
-                        value={userAge}
+                        value={age}
                     />
                     <button name='send'>send user</button>
                     <button
