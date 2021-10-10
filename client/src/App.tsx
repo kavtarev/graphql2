@@ -1,26 +1,132 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react'
+import { gql, useMutation, useQuery } from '@apollo/client'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css'
+interface User {
+    username: string
+    age: number
+    id: number
 }
 
-export default App;
+const GET_ALL_USERS = gql`
+    query {
+        getAllUsers {
+            id
+            username
+            age
+        }
+    }
+`
+
+const CREATE_USER = gql`
+    mutation createUser($input: UserInput) {
+        createUser(input: $input) {
+            id
+            username
+            age
+        }
+    }
+`
+const GET_USER = gql`
+    query getUser($id: ID) {
+        getUser(id: $id) {
+            id
+            username
+        }
+    }
+`
+
+//let users: User[] = [{ username: 'dg', age: 23, id: 1 }]
+
+function App() {
+    const { data, loading, error } = useQuery(GET_ALL_USERS)
+    const {
+        data: newsUser,
+        loading: lodf,
+        error: df,
+    } = useQuery(GET_USER, { variables: { id: 1 } })
+    const [newUser] = useMutation(CREATE_USER)
+    const [users, setUsers] = useState<any[]>([])
+    const [userName, setUsername] = useState('')
+    const [userAge, setUserAge] = useState('')
+    const [trash, setTrash] = useState('trash')
+    console.log(data)
+    console.log('newOne: ', newsUser)
+    useEffect(() => {
+        if (!loading) {
+            setUsers(data.getAllUsers)
+        }
+    }, [data])
+    if (loading) {
+        return <h1>'LOADING...'</h1>
+    }
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault()
+    }
+
+    /*   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.target.name === 'username' ? setUsername(e.target.value) : setUserAge(e.target.value)
+    } */
+    const addUser = () => {
+        newUser({
+            variables: {
+                input: {
+                    userName,
+                    userAge,
+                },
+            },
+        }).then(({ data }) => {
+            console.log(data)
+        })
+    }
+
+    return (
+        <div className='App'>
+            <div>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        onChange={(e) => {
+                            setUsername(e.target.value)
+                        }}
+                        type='text'
+                        name='username'
+                        value={userName}
+                    />
+                    <input
+                        onChange={(e) => {
+                            setUserAge(e.target.value)
+                        }}
+                        type='number'
+                        name='age'
+                        value={userAge}
+                    />
+                    <button name='send'>send user</button>
+                    <button
+                        name='create'
+                        onClick={() => {
+                            addUser()
+                        }}
+                    >
+                        create user
+                    </button>
+                </form>
+                <input
+                    type='text'
+                    value={trash}
+                    onChange={(e) => {
+                        setTrash(e.target.value)
+                    }}
+                />
+                <div className='users'>
+                    {users.map((item) => (
+                        <li>
+                            {item.username}, {item.age}, {item.id}
+                        </li>
+                    ))}
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default App
