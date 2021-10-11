@@ -47,7 +47,7 @@ function App() {
     } = useQuery(GET_USER, { variables: { id: 1 } })
     const [newUser] = useMutation(CREATE_USER)
     const [users, setUsers] = useState<any[]>([])
-    const [username, setusername] = useState('')
+    const [username, setusername] = useState<string>('')
     const [age, setage] = useState<number>()
     const [trash, setTrash] = useState('trash')
     console.log(data)
