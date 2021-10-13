@@ -1,0 +1,26 @@
+.textarea {
+  position: relative;
+  &__item {
+    resize: none;
+    width: 100%;
+    max-width: 561px;
+    min-height: 53px;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 16px;
+    padding: 16px;
+    color: #21202b;
+    font-family: "RalewayMedium", sans-serif;
+    line-height: 130%;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+}
+
+.textarea .textarea__item:focus ~ .textarea__label,
+.textarea .textarea__item:valid ~ .textarea__label {
+  top: -25px;
+  font-size: 12px;
+  color: #21202b;
+  outline: none;
+}

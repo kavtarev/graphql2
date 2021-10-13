@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ClassTextAreaBehaviour } from "../ClassTextArea/ClassTextAreaBehaviour";
 import { Textarea } from "../textarea/Textarea";
 import style from "./input.module.scss";
 
@@ -30,11 +31,15 @@ export function InputTemplate({
       </div>
       <div className={style.inputControl__textareaWrapper}>
         <div className={style.inputControl__textarea}>
-          <Textarea
+          <ClassTextAreaBehaviour
+            inputOnChange={onInputChange}
+            textValue={textValue}
+          />
+          {/*<Textarea
             id={title}
             defaultValue={textValue}
             setSolution={onInputChange}
-          />
+          />*/}
           {/*<textarea
             id={`${title}`}
             style={{ height: `${areaHeight}px` }}
