@@ -5,15 +5,18 @@ interface IPropsTextarea {
   className?: string;
   label?: string;
   defaultValue?: string | null;
-  setSolution: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  setSolution: any;
+  id?: string;
 }
 
 export function Textarea({
+  id,
   label,
   className,
   defaultValue,
   setSolution,
-}: IPropsTextarea) {
+}: // setSolution,
+IPropsTextarea) {
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const [textAreaHeight, setTextAreaHeight] = useState("auto");
 
@@ -29,20 +32,15 @@ export function Textarea({
   const ROOT_CLASS = "textarea";
 
   return (
-    <div className={`${ROOT_CLASS} ${className}`}>
-      <textarea
-        className={`${ROOT_CLASS}__item`}
-        ref={textAreaRef}
-        style={{ height: textAreaHeight }}
-        rows={1}
-        id="textarea"
-        defaultValue={defaultValue || ""}
-        onChange={onChangeHandler}
-        required
-      ></textarea>
-      <label className={`${ROOT_CLASS}__label`} htmlFor="textarea">
-        {label}
-      </label>
-    </div>
+    <textarea
+      className={`${ROOT_CLASS}__item`}
+      ref={textAreaRef}
+      style={{ height: textAreaHeight }}
+      rows={1}
+      id={id}
+      defaultValue={defaultValue || ""}
+      onChange={onChangeHandler}
+      required
+    ></textarea>
   );
 }

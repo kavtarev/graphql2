@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { Textarea } from "../textarea/Textarea";
 import style from "./input.module.scss";
 
 interface Props {
@@ -21,6 +22,7 @@ export function InputTemplate({
   charactersLimit,
   onInputChange,
 }: Props) {
+  const [height, setheight] = useState<string | null>("36px");
   return (
     <div style={{ height: `${areaHeight}px` }} className={style.inputControl}>
       <div className={style.inputControl__title}>
@@ -28,14 +30,19 @@ export function InputTemplate({
       </div>
       <div className={style.inputControl__textareaWrapper}>
         <div className={style.inputControl__textarea}>
-          <textarea
+          <Textarea
+            id={title}
+            defaultValue={textValue}
+            setSolution={onInputChange}
+          />
+          {/*<textarea
             id={`${title}`}
             style={{ height: `${areaHeight}px` }}
             value={textValue}
             onChange={onInputChange}
             placeholder="Обязательно для заполнения"
             name=""
-          ></textarea>
+         ></textarea>*/}
           <div
             style={{ height: `${areaHeight}px` }}
             className={style.inputControl__textdiv}

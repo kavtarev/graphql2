@@ -3,7 +3,7 @@ import { gql, useMutation, useQuery } from "@apollo/client";
 
 import "./App.css";
 import { InputBehaviour } from "./Input/InputBehavior";
-import { Textarea } from "./textarea/textarea";
+import { Textarea } from "./textarea/Textarea";
 
 interface User {
   username: string;
@@ -54,6 +54,7 @@ function App() {
   const [username, setusername] = useState<string>("");
   const [age, setage] = useState<number>();
   const [trash, setTrash] = useState("trash");
+  const [state, setstate] = useState<string | null>();
   console.log(data);
   console.log("newOne: ", newsUser);
   useEffect(() => {
@@ -139,11 +140,7 @@ function App() {
         />
         <InputBehaviour title="Подзаголовок" error={true} isRequired={true} />
       </div>
-      <Textarea
-        setSolution={(e) => {
-          console.log(e);
-        }}
-      />
+      {/*<Textarea defaultValue={state} setSolution={setstate} />*/}
     </div>
   );
 }
