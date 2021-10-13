@@ -1,10 +1,11 @@
-const { buildSchema } = require('graphql')
+const { buildSchema } = require("graphql");
 
 const schema = buildSchema(`
     type User{
         id: ID
         username: String!
         age: Int!
+        hui:Int
         posts: [Post]
     }
 
@@ -33,8 +34,8 @@ const schema = buildSchema(`
         createUser(input:UserInput): User
     }
 
-`)
-module.exports = schema
+`);
+module.exports = schema;
 // input fields are about mutations
 // ! required fields
 
