@@ -1,0 +1,47 @@
+.textarea {
+  position: relative;
+  &__item {
+    resize: vertical;
+    width: 100%;
+    min-height: 53px;
+    border: 0.4px solid #696e7b;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 16px;
+    padding: 16px;
+    color: #21202b;
+    font-family: "RalewayMedium", sans-serif;
+    line-height: 130%;
+    overflow: hidden;
+    border-radius: 4px;
+    &:focus {
+      border-bottom: 1px solid #f58020;
+    }
+    &:focus ~ .textarea__label {
+      top: -27px;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    font-family: "RalewayMedium", sans-serif;
+    font-size: 14px;
+    top: 0;
+    left: 0;
+    height: 10px;
+    padding: 5px;
+    margin-left: 14px;
+    margin-top: 16px;
+    background: #fff;
+    color: #696e7b;
+    transition: 0.2s;
+    pointer-events: none;
+  }
+}
+
+.textarea .textarea__item:focus ~ .textarea__label,
+.textarea .textarea__item:valid ~ .textarea__label {
+  top: -25px;
+  font-size: 12px;
+  color: #21202b;
+}
