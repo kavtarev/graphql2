@@ -4,7 +4,9 @@ import { gql, useMutation, useQuery } from "@apollo/client";
 import "./App.css";
 import { InputBehaviour } from "./Input/InputBehavior";
 import { Textarea } from "./textarea/Textarea";
-
+import { InputWithChoiceBehaviour } from "./InputWithChoice/InputWithChoiceBehavior";
+import { InputWithTagsBehaviour } from "./InputWithtags/InputWithTagsBehaviour";
+let items = ["ab", "aa", "asd", "asds", "asdfge", "bfd"];
 interface User {
   username: string;
   age: number;
@@ -140,13 +142,21 @@ function App() {
         />
         <InputBehaviour
           title="Подзаголовок"
-          error={true}
+          error={false}
           isRequired={true}
           charactersLimit={70}
         />
         <InputBehaviour title="Title SEO" error={false} isRequired={false} />
       </div>
-      {/*<Textarea defaultValue={state} setSolution={setstate} />*/}
+
+      <div className="inputWithChoiceWrapper">
+        <InputWithChoiceBehaviour
+          isAuthor={true}
+          items={items}
+          title="выбрать автора"
+        />
+        <InputWithTagsBehaviour title="se" items={items} isAuthor={false} />
+      </div>
     </div>
   );
 }
