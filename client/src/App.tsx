@@ -6,7 +6,21 @@ import { InputBehaviour } from "./Input/InputBehavior";
 import { Textarea } from "./textarea/Textarea";
 import { InputWithChoiceBehaviour } from "./InputWithChoice/InputWithChoiceBehavior";
 import { InputWithTagsBehaviour } from "./InputWithtags/InputWithTagsBehaviour";
-let items = ["ab", "aa", "asd", "asds", "asdfge", "bfd"];
+let items = [
+  "ab",
+  "aa",
+  "asd",
+  "asds",
+  "asdfge",
+  "aaaaa",
+  "abdfg",
+  "bfd",
+  "bdsf",
+  "hfgfdg",
+  "dfg",
+  "sdf",
+  "sdfsdfsd",
+];
 interface User {
   username: string;
   age: number;
@@ -151,6 +165,7 @@ function App() {
 
       <div className="inputWithChoiceWrapper">
         <InputWithChoiceBehaviour
+          textValue=""
           isAuthor={true}
           items={items}
           title="выбрать автора"

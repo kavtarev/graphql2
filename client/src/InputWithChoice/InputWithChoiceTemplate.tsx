@@ -4,6 +4,7 @@ import style from "./inputWithChoice.module.scss";
 
 interface Props {
   isAuthor: boolean;
+  isItemsShown: boolean;
   items: string[];
   textValue: string;
   title: string;
@@ -11,15 +12,18 @@ interface Props {
   onInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   itemOnClick: (e: React.MouseEvent<HTMLElement>) => void;
   onEnterPressed?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  toggleItemsVisibility: () => void;
 }
 export function InputWithChoiceTemplate({
   title,
   isAuthor,
   selectedItems,
+  isItemsShown,
   textValue,
   itemOnClick,
   onInputChange,
   onEnterPressed,
+  toggleItemsVisibility,
 }: Props) {
   let isOpened = !!selectedItems.length;
 
@@ -40,6 +44,8 @@ export function InputWithChoiceTemplate({
                 value={textValue}
                 onChange={onInputChange}
                 onKeyPress={onEnterPressed ? onEnterPressed : () => {}}
+                onBlur={toggleItemsVisibility}
+                onFocus={toggleItemsVisibility}
                 type="text"
               />
               {!isAuthor && (
@@ -51,12 +57,22 @@ export function InputWithChoiceTemplate({
             </div>
           </div>
           <div
-            className={`${style.suggestedWrapper} ${isOpened && style.active}`}
+            className={`${style.suggestedWrapper} ${
+              isItemsShown && isOpened && style.active
+            }`}
           >
-            <div className={`${style.suggested} ${isOpened && style.active}`}>
+            <div
+              className={`${style.suggested} ${
+                isItemsShown && isOpened && style.active
+              }`}
+            >
               {selectedItems.map((item) => {
                 return (
-                  <div onClick={itemOnClick} className={style.suggestedItem}>
+                  <div
+                    key={item}
+                    onMouseDown={itemOnClick}
+                    className={style.suggestedItem}
+                  >
                     {item}
                   </div>
                 );
