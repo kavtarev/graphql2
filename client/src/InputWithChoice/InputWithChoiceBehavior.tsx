@@ -30,6 +30,8 @@ export class InputWithChoiceBehaviour extends React.Component<Props, State> {
   }
   componentDidUpdate(prevProps: Props, prevState: State) {
     console.log("update", prevProps, this.state);
+    if (prevProps.textValue !== this.state.textValue) {
+    }
   }
   render(): JSX.Element {
     const { textValue, selectedItems, isItemsShown } = this.state;

@@ -17,7 +17,7 @@ export class InputWithTagsBehaviour extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      textValue: "",
+      textValue: "mine text value",
       selectedTags: [],
     };
     this.onEnterPressed = this.onEnterPressed.bind(this);
@@ -57,9 +57,9 @@ export class InputWithTagsBehaviour extends React.Component<Props, State> {
     if (e.key === "Enter") {
       this.setState({
         selectedTags: [...this.state.selectedTags, e.currentTarget.value],
-        textValue: "",
+        textValue: "tttttttttttttttttttttttttt",
       });
-      console.log(this.state.selectedTags);
+      console.log("hui hui hui");
     }
   }
   public onDeleteItem = (item: string) => {
