@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { ClassTextAreaBehaviour } from "../ClassTextArea/ClassTextAreaBehaviour";
-import { Textarea } from "../textarea/Textarea";
 import style from "./input.module.scss";
 
 interface Props {
@@ -37,19 +36,6 @@ export function InputTemplate({
             isRequired={isRequired}
             charactersLimit={charactersLimit}
           />
-          {/*<Textarea
-            id={title}
-            defaultValue={textValue}
-            setSolution={onInputChange}
-          />*/}
-          {/*<textarea
-            id={`${title}`}
-            style={{ height: `${areaHeight}px` }}
-            value={textValue}
-            onChange={onInputChange}
-            placeholder="Обязательно для заполнения"
-            name=""
-         ></textarea>*/}
           <div
             style={{ height: `${areaHeight}px` }}
             className={style.inputControl__textdiv}

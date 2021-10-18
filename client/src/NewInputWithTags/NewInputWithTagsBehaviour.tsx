@@ -68,12 +68,10 @@ export class NewInputWithTagsBehaviour extends React.Component<Props, State> {
       textValue: e.currentTarget.textContent!,
       selectedItems: [],
     });
-    console.log("text value ", this.state.textValue);
   }
 
   public toggleItemsVisibility() {
     this.setState({ isItemsShown: !this.state.isItemsShown });
-    console.log("is shown ", this.state.isItemsShown);
   }
 
   public onEnterPressed(e: React.KeyboardEvent<HTMLInputElement>) {
