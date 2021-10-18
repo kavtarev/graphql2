@@ -204,13 +204,14 @@ input {
   cursor: pointer;
 }
 .tagIcon {
-  /*background-image: url(/images/g-icon_auto-sprite.png?h=89dca6f4);*/
+  background-color: #f85238;
+  background-image: url(../sprites/g-icon_img_close.png);
   background-position: -204px -19px;
   width: 12px;
   height: 12px;
   display: inline-block;
   vertical-align: middle;
-  transform: translate(-4px, -3px);
+  /* transform: translate(-4px, -3px);*/
   font-weight: 900;
   color: grey;
 }

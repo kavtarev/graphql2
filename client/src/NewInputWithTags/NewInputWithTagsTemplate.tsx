@@ -91,9 +91,7 @@ export function NewInputWithChoiceTemplate({
                 <div
                   onClick={() => onDeleteTag(item)}
                   className={style.tagIcon}
-                >
-                  x
-                </div>
+                ></div>
               </div>
             </div>
           </div>
