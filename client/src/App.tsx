@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { gql, useMutation, useQuery } from "@apollo/client";
-
 import "./App.css";
 import { InputBehaviour } from "./Input/InputBehavior";
-import { Textarea } from "./textarea/Textarea";
 import { InputWithChoiceBehaviour } from "./InputWithChoice/InputWithChoiceBehavior";
-import { InputWithTagsBehaviour } from "./InputWithtags/InputWithTagsBehaviour";
 import { DebouncedInput } from "./tryDebouce/TryDebounce";
+import { NewInputWithTagsBehaviour } from "./NewInputWithTags/NewInputWithTagsBehaviour";
+
 let items = [
   "ab",
   "aa",
@@ -57,8 +56,6 @@ const GET_USER = gql`
   }
 `;
 
-//let users: User[] = [{ username: 'dg', age: 23, id: 1 }]
-
 function App() {
   const { data, loading, error } = useQuery(GET_ALL_USERS);
   const {
@@ -87,9 +84,6 @@ function App() {
     console.log(34);
   };
 
-  /*   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        e.target.name === 'username' ? setusername(e.target.value) : setage(e.target.value)
-    } */
   const addUser = () => {
     newUser({
       variables: {
@@ -162,90 +156,9 @@ function App() {
           charactersLimit={70}
         />
         <InputBehaviour title="Title SEO" error={false} isRequired={false} />
-      </div>
-
-      <div className="inputWithChoiceWrapper">
-        <InputWithChoiceBehaviour
-          textValue=""
-          isAuthor={true}
-          items={items}
-          title="выбрать автора"
-        />
-        <InputWithTagsBehaviour title="se" items={items} isAuthor={false} />
-      </div>
-      <DebouncedInput />
-    </div>
-  );
-  return (
-    <div className="App">
-      <div>
-        <form onSubmit={handleSubmit}>
-          <input
-            onChange={(e) => {
-              setusername(e.target.value);
-            }}
-            type="text"
-            name="username"
-            value={username}
-          />
-          <input
-            onChange={(e) => {
-              setage(Number(e.target.value));
-            }}
-            type="number"
-            name="age"
-            value={age}
-          />
-          <button name="send">send user</button>
-          <button
-            name="create"
-            onClick={() => {
-              addUser();
-            }}
-          >
-            create user
-          </button>
-        </form>
-        <input
-          type="text"
-          value={trash}
-          onChange={(e) => {
-            setTrash(e.target.value);
-          }}
-        />
-        <div className="users">
-          {users.map((item) => (
-            <li>
-              {item.username}, {item.age}, {item.id}
-            </li>
-          ))}
-        </div>
-      </div>
-      <div className="forinput">
-        <InputBehaviour
-          title="Заголовок"
-          error={true}
-          isRequired={false}
-          charactersLimit={50}
-        />
-        <InputBehaviour
-          title="Подзаголовок"
-          error={false}
-          isRequired={true}
-          charactersLimit={70}
-        />
-        <InputBehaviour title="Title SEO" error={false} isRequired={false} />
-        <InputWithChoiceBehaviour
-          textValue=""
-          isAuthor={true}
-          items={items}
-          title="Выбрать автора"
-        />
-        <InputWithTagsBehaviour
-          title="Выбрать тэги"
-          items={items}
-          isAuthor={false}
-        />
+        <InputWithChoiceBehaviour items={items} title="автор" />
+        <NewInputWithTagsBehaviour title={"добавить тэги"} items={items} />
+        <DebouncedInput />
       </div>
     </div>
   );

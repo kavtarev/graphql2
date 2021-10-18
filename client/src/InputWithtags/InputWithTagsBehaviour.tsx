@@ -24,17 +24,10 @@ export class InputWithTagsBehaviour extends React.Component<Props, State> {
   }
 
   render() {
-    let { title, items, isAuthor } = this.props;
-    let { textValue } = this.state;
+    let { title, items } = this.props;
     return (
       <div>
-        <InputWithChoiceBehaviour
-          title={title}
-          items={items}
-          isAuthor={isAuthor}
-          onEnterPressed={this.onEnterPressed}
-          textValue={textValue}
-        />
+        <InputWithChoiceBehaviour title={title} items={items} />
         <div className={style.tagWrapper}>
           {this.state.selectedTags.map((item) => (
             <div className={style.main}>

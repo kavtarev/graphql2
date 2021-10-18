@@ -1,21 +1,24 @@
 import React from "react";
-import { InputWithChoiceTemplate } from "./InputWithChoiceTemplate";
+import { NewInputWithChoiceTemplate } from "./NewInputWithTagsTemplate";
 
 interface Props {
   title: string;
   items: string[];
 }
+
 interface State {
   textValue: string;
   selectedItems: string[];
+  tags: string[];
   isItemsShown: boolean;
 }
 
-export class InputWithChoiceBehaviour extends React.Component<Props, State> {
+export class NewInputWithTagsBehaviour extends React.Component<Props, State> {
   inputRef = React.createRef<HTMLInputElement>();
   constructor(props: Props) {
     super(props);
     this.state = {
+      tags: [],
       textValue: "",
       selectedItems: [],
       isItemsShown: false,
@@ -23,22 +26,27 @@ export class InputWithChoiceBehaviour extends React.Component<Props, State> {
     this.onInputChange = this.onInputChange.bind(this);
     this.itemOnClick = this.itemOnClick.bind(this);
     this.toggleItemsVisibility = this.toggleItemsVisibility.bind(this);
+    this.onEnterPressed = this.onEnterPressed.bind(this);
+    this.onDeleteTag = this.onDeleteTag.bind(this);
   }
 
   render(): JSX.Element {
-    const { textValue, selectedItems, isItemsShown } = this.state;
+    const { textValue, selectedItems, isItemsShown, tags } = this.state;
     let { title, items } = this.props;
 
-    return React.createElement(InputWithChoiceTemplate, {
+    return React.createElement(NewInputWithChoiceTemplate, {
       inputRef: this.inputRef,
       textValue,
       items,
       title,
       selectedItems,
       isItemsShown,
+      tags,
+      onEnterPressed: this.onEnterPressed,
       onInputChange: this.onInputChange,
       itemOnClick: this.itemOnClick,
       toggleItemsVisibility: this.toggleItemsVisibility,
+      onDeleteTag: this.onDeleteTag,
     });
   }
 
@@ -54,13 +62,33 @@ export class InputWithChoiceBehaviour extends React.Component<Props, State> {
         .slice(0, 5),
     });
   }
+
   public itemOnClick(e: React.MouseEvent<HTMLElement>) {
     this.setState({
       textValue: e.currentTarget.textContent!,
       selectedItems: [],
     });
+    console.log("text value ", this.state.textValue);
   }
-  toggleItemsVisibility() {
+
+  public toggleItemsVisibility() {
     this.setState({ isItemsShown: !this.state.isItemsShown });
+    console.log("is shown ", this.state.isItemsShown);
   }
+
+  public onEnterPressed(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.key === "Enter" && e.currentTarget.value !== "") {
+      this.setState({
+        tags: [...this.state.tags, e.currentTarget.value],
+        textValue: "",
+      });
+      this.inputRef.current?.blur();
+    }
+  }
+
+  public onDeleteTag = (item: string) => {
+    this.setState({
+      tags: this.state.tags.filter((name) => name !== item),
+    });
+  };
 }

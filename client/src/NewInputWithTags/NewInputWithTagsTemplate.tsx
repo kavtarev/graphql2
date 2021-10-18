@@ -1,24 +1,32 @@
 import React from "react";
-import style from "./inputWithChoice.module.scss";
+import style from "./newinputWithChoice.module.scss";
+
 interface Props {
   isItemsShown: boolean;
   items: string[];
   textValue: string;
   title: string;
   selectedItems: string[];
+  tags: string[];
+  inputRef: any;
   onInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   itemOnClick: (e: React.MouseEvent<HTMLElement>) => void;
+  onEnterPressed?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   toggleItemsVisibility: () => void;
+  onDeleteTag: (ites: string) => void;
 }
-
-export function InputWithChoiceTemplate({
+export function NewInputWithChoiceTemplate({
   title,
+  tags,
   selectedItems,
   isItemsShown,
   textValue,
+  inputRef,
   itemOnClick,
   onInputChange,
+  onEnterPressed,
   toggleItemsVisibility,
+  onDeleteTag,
 }: Props) {
   let isSelectedItems = !!selectedItems.length;
 
@@ -32,14 +40,20 @@ export function InputWithChoiceTemplate({
           <div>
             <div className={style.inputWrapper}>
               <input
+                ref={inputRef}
                 id={title}
                 value={textValue}
                 onChange={onInputChange}
+                onKeyDown={onEnterPressed}
                 onBlur={toggleItemsVisibility}
                 onFocus={toggleItemsVisibility}
                 type="text"
-                placeholder="выбрать автора"
               />
+              {
+                <div className={style.enterIcon}>
+                  <div className={style.icon}></div>
+                </div>
+              }
               <div className={style.hint}></div>
             </div>
           </div>
@@ -67,6 +81,23 @@ export function InputWithChoiceTemplate({
             </div>
           </div>
         </div>
+      </div>
+      <div className={style.tagWrapper}>
+        {tags.map((item) => (
+          <div key={item} className={style.main}>
+            <div className={style.tag}>
+              <div className={style.name}>{item}</div>
+              <div className={style.iconWrapper}>
+                <div
+                  onClick={() => onDeleteTag(item)}
+                  className={style.tagIcon}
+                >
+                  x
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
