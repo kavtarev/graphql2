@@ -25,10 +25,10 @@ export function InputWithChoiceTemplate({
   onEnterPressed,
   toggleItemsVisibility,
 }: Props) {
-  let isOpened = !!selectedItems.length;
+  let isSelectedItems = !!selectedItems.length;
 
   console.log("template selected items ", selectedItems);
-  console.log("isOpened ", isOpened);
+  console.log("isSelectedItems ", isSelectedItems);
 
   return (
     <div style={{ height: `${36}px` }} className={style.inputControl}>
@@ -50,7 +50,7 @@ export function InputWithChoiceTemplate({
               />
               {!isAuthor && (
                 <div className={style.enterIcon}>
-                  <div className={style.icon}>e</div>
+                  <div className={style.icon}></div>
                 </div>
               )}
               <div className={style.hint}></div>
@@ -58,12 +58,12 @@ export function InputWithChoiceTemplate({
           </div>
           <div
             className={`${style.suggestedWrapper} ${
-              isItemsShown && isOpened && style.active
+              isItemsShown && isSelectedItems && style.active
             }`}
           >
             <div
               className={`${style.suggested} ${
-                isItemsShown && isOpened && style.active
+                isItemsShown && isSelectedItems && style.active
               }`}
             >
               {selectedItems.map((item) => {

@@ -17,7 +17,7 @@ export class InputWithTagsBehaviour extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      textValue: "mine text value",
+      textValue: "",
       selectedTags: [],
     };
     this.onEnterPressed = this.onEnterPressed.bind(this);
@@ -37,14 +37,16 @@ export class InputWithTagsBehaviour extends React.Component<Props, State> {
         />
         <div className={style.tagWrapper}>
           {this.state.selectedTags.map((item) => (
-            <div className={style.tag}>
-              <div className={style.name}>{item}</div>
-              <div className={style.iconWrapper}>
-                <div
-                  onClick={() => this.onDeleteItem(item)}
-                  className={style.icon}
-                >
-                  x
+            <div className={style.main}>
+              <div className={style.tag}>
+                <div className={style.name}>{item}</div>
+                <div className={style.iconWrapper}>
+                  <div
+                    onClick={() => this.onDeleteItem(item)}
+                    className={style.icon}
+                  >
+                    x
+                  </div>
                 </div>
               </div>
             </div>
@@ -54,12 +56,11 @@ export class InputWithTagsBehaviour extends React.Component<Props, State> {
     );
   }
   public onEnterPressed(e: React.KeyboardEvent<HTMLInputElement>) {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && e.currentTarget.value !== "") {
       this.setState({
         selectedTags: [...this.state.selectedTags, e.currentTarget.value],
-        textValue: "tttttttttttttttttttttttttt",
+        textValue: "",
       });
-      console.log("hui hui hui");
     }
   }
   public onDeleteItem = (item: string) => {
