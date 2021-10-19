@@ -145,7 +145,7 @@ function App() {
       <div className="forinput">
         <InputBehaviour
           title="Заголовок"
-          error={true}
+          error={false}
           isRequired={false}
           charactersLimit={50}
         />

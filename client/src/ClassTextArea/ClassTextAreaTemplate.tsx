@@ -20,7 +20,7 @@ export function ClassTextAreaTemplate({
   isRequired,
   charactersLimit,
 }: Props) {
-  const ROOT_CLASS = "textarea";
+  // const ROOT_CLASS = "textarea";
   return (
     <textarea
       placeholder={
@@ -30,7 +30,6 @@ export function ClassTextAreaTemplate({
           ? "Не обязательно для заполнения"
           : "Введите ключевые слова"
       }
-      className={`${ROOT_CLASS}__item`}
       ref={inputRef}
       style={{ height: areaHeight }}
       rows={1}

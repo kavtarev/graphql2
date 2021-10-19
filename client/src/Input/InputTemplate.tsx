@@ -1,6 +1,7 @@
 import React from "react";
 import { ClassTextAreaBehaviour } from "../ClassTextArea/ClassTextAreaBehaviour";
-import style from "./input.module.scss";
+import "../inputs.scss";
+const classNames = require("classnames");
 
 interface Props {
   textValue: string;
@@ -22,13 +23,23 @@ export function InputTemplate({
   charactersLimit,
   onInputChange,
 }: Props) {
+  const ROOT_CLASS = "inputControl";
+  const SUB_ROOT_CLASS = "textareaWrapper";
+
+  const limitClassNames = classNames("counter", { alert: howManyLeft < 0 });
+  const noLimitClassNames = classNames("counter", {
+    alert: howManyLeft < 25 && howManyLeft !== 0,
+    nolimit: howManyLeft >= 25,
+  });
+  const hintClassName = classNames("hint", "error");
+
   return (
-    <div style={{ height: `${areaHeight}px` }} className={style.inputControl}>
-      <div className={style.inputControl__title}>
+    <div style={{ height: `${areaHeight}px` }} className={ROOT_CLASS}>
+      <div className={`${ROOT_CLASS}__title`}>
         <label htmlFor={`${title}`}>{title}</label>
       </div>
-      <div className={style.inputControl__textareaWrapper}>
-        <div className={style.inputControl__textarea}>
+      <div className={SUB_ROOT_CLASS}>
+        <div className={`${SUB_ROOT_CLASS}__textarea`}>
           <ClassTextAreaBehaviour
             title={title}
             inputOnChange={onInputChange}
@@ -38,35 +49,19 @@ export function InputTemplate({
           />
           <div
             style={{ height: `${areaHeight}px` }}
-            className={style.inputControl__textdiv}
+            className={`${SUB_ROOT_CLASS}__textdiv`}
           >
             {textValue}
           </div>
-          <div className={style.inputControl__counterWrapper}>
+          <div className={`${SUB_ROOT_CLASS}__counterWrapper`}>
             {!!charactersLimit ? (
-              <div
-                className={`${style.inputControl__counter} 
-              ${howManyLeft < 0 && style.alert}`}
-              >
-                {howManyLeft}
-              </div>
+              <div className={`${limitClassNames}`}>{howManyLeft}</div>
             ) : (
-              <div
-                className={`${style.inputControl__counter} 
-              ${howManyLeft < 25 && howManyLeft !== 0 && style.alert}
-              ${howManyLeft >= 25 && style.nolimit}
-              `}
-              >
-                {howManyLeft}
-              </div>
+              <div className={`${noLimitClassNames}`}>{howManyLeft}</div>
             )}
           </div>
-          {isRequired && (
-            <div
-              className={`${style.inputControl__error} ${error && style.error}`}
-            >
-              Обязательно к заполнению
-            </div>
+          {isRequired && error && (
+            <div className={`${hintClassName}`}>Обязательно к заполнению</div>
           )}
         </div>
       </div>

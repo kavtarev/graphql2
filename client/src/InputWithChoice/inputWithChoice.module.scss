@@ -24,6 +24,9 @@
   border-radius: 4px;
   position: relative;
   width: 100%;
+  &:focus-within {
+    border: 1px solid #f85238;
+  }
 }
 .inputControl__error {
   top: -41px;
@@ -57,9 +60,6 @@
   border: 1px solid #e5e5e5;
   border-radius: 4px;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  &:focus-within {
-    border: 1px solid #f85238;
-  }
 }
 input {
   box-sizing: border-box;

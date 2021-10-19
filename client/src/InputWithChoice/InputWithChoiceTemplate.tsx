@@ -1,5 +1,7 @@
 import React from "react";
-import style from "./inputWithChoice.module.scss";
+import "../inputs.scss";
+const classNames = require("classnames");
+
 interface Props {
   isItemsShown: boolean;
   items: string[];
@@ -21,51 +23,53 @@ export function InputWithChoiceTemplate({
   toggleItemsVisibility,
 }: Props) {
   let isSelectedItems = !!selectedItems.length;
+  const ROOT_CLASS = "inputControl";
+  const SUB_ROOT_CLASS = "inputWrapper";
+  const wrapperClassNames = classNames(`${SUB_ROOT_CLASS}__suggestedWrapper`, {
+    active: isItemsShown && isSelectedItems,
+  });
+  const suggestedClassNames = classNames(
+    `${SUB_ROOT_CLASS}__suggestedWrapper`,
+    "suggested",
+    {
+      active: isItemsShown && isSelectedItems,
+    }
+  );
 
   return (
-    <div style={{ height: `36px` }} className={style.inputControl}>
-      <div className={style.inputControl__title}>
+    <div style={{ height: `36px` }} className={ROOT_CLASS}>
+      <div className={`${ROOT_CLASS}__title`}>
         <label htmlFor={`${title}`}>{title}</label>
       </div>
-      <div className={style.inputControl__textareaWrapper}>
-        <div className={style.inputControl__textarea}>
-          <div>
-            <div className={style.inputWrapper}>
-              <input
-                id={title}
-                value={textValue}
-                onChange={onInputChange}
-                onBlur={toggleItemsVisibility}
-                onFocus={toggleItemsVisibility}
-                type="text"
-                placeholder="выбрать автора"
-              />
-              <div className={style.hint}></div>
+      <div className={SUB_ROOT_CLASS}>
+        <div className={`${SUB_ROOT_CLASS}__textarea`}>
+          <input
+            id={title}
+            value={textValue}
+            onChange={onInputChange}
+            onBlur={toggleItemsVisibility}
+            onFocus={toggleItemsVisibility}
+            type="text"
+            placeholder="выбрать автора"
+          />
+
+          {isItemsShown && isSelectedItems && (
+            <div className={wrapperClassNames}>
+              <div className={suggestedClassNames}>
+                {selectedItems.map((item) => {
+                  return (
+                    <div
+                      key={item}
+                      onMouseDown={itemOnClick}
+                      className="suggestedItem"
+                    >
+                      {item}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          </div>
-          <div
-            className={`${style.suggestedWrapper} ${
-              isItemsShown && isSelectedItems && style.active
-            }`}
-          >
-            <div
-              className={`${style.suggested} ${
-                isItemsShown && isSelectedItems && style.active
-              }`}
-            >
-              {selectedItems.map((item) => {
-                return (
-                  <div
-                    key={item}
-                    onMouseDown={itemOnClick}
-                    className={style.suggestedItem}
-                  >
-                    {item}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+          )}
         </div>
       </div>
     </div>
