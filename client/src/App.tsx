@@ -30,13 +30,13 @@ function App() {
           title="Заголовок"
           error={false}
           isRequired={false}
-          charactersLimit={50}
+          characterLimit={50}
         />
         <InputBehaviour
           title="Подзаголовок"
           error={false}
           isRequired={true}
-          charactersLimit={70}
+          characterLimit={70}
         />
         <InputBehaviour title="Title SEO" error={false} isRequired={false} />
         <InputWithChoiceBehaviour items={items} title="автор" />

@@ -10,7 +10,7 @@ interface Props {
   error: boolean;
   areaHeight: number;
   isRequired: boolean;
-  charactersLimit: number;
+  characterLimit: number;
   onInputChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 export function InputTemplate({
@@ -20,7 +20,7 @@ export function InputTemplate({
   areaHeight,
   error,
   isRequired,
-  charactersLimit,
+  characterLimit,
   onInputChange,
 }: Props) {
   const ROOT_CLASS = "inputControl";
@@ -45,7 +45,7 @@ export function InputTemplate({
             inputOnChange={onInputChange}
             textValue={textValue}
             isRequired={isRequired}
-            charactersLimit={charactersLimit}
+            characterLimit={characterLimit}
           />
           <div
             style={{ height: `${areaHeight}px` }}
@@ -54,7 +54,7 @@ export function InputTemplate({
             {textValue}
           </div>
           <div className={`${SUB_ROOT_CLASS}__counterWrapper`}>
-            {!!charactersLimit ? (
+            {!!characterLimit ? (
               <div className={`${limitClassNames}`}>{howManyLeft}</div>
             ) : (
               <div className={`${noLimitClassNames}`}>{howManyLeft}</div>

@@ -68,6 +68,9 @@ export class NewInputWithTagsBehaviour extends React.Component<Props, State> {
       textValue: e.currentTarget.textContent!,
       selectedItems: [],
     });
+    // no, just this.inputRef.current!.focus() not working
+
+    setTimeout(() => this.inputRef.current!.focus(), 0);
   }
 
   public toggleItemsVisibility() {

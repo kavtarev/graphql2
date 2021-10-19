@@ -7,7 +7,7 @@ interface Props {
   title: string;
   textValue: string;
   isRequired: boolean;
-  charactersLimit: number;
+  characterLimit: number;
   onInputChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
@@ -18,7 +18,7 @@ export function ClassTextAreaTemplate({
   textValue,
   onInputChange,
   isRequired,
-  charactersLimit,
+  characterLimit,
 }: Props) {
   // const ROOT_CLASS = "textarea";
   return (
@@ -26,7 +26,7 @@ export function ClassTextAreaTemplate({
       placeholder={
         isRequired
           ? "Обязательно для заполнения"
-          : charactersLimit
+          : characterLimit
           ? "Не обязательно для заполнения"
           : "Введите ключевые слова"
       }

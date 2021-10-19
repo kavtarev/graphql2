@@ -59,7 +59,6 @@ export function NewInputWithChoiceTemplate({
               onKeyDown={onEnterPressed}
               onBlur={toggleItemsVisibility}
               onFocus={toggleItemsVisibility}
-              placeholder="добавить тэги"
               type="text"
             />
             <div className="enterIcon">
