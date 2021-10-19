@@ -1,6 +1,4 @@
 import React from "react";
-import style from "./newinputWithChoice.module.scss";
-
 import "../inputs.scss";
 const classNames = require("classnames");
 interface Props {
@@ -31,6 +29,7 @@ export function NewInputWithChoiceTemplate({
   onDeleteTag,
 }: Props) {
   let isSelectedItems = !!selectedItems.length;
+
   const ROOT_CLASS = "inputControl";
   const SUB_ROOT_CLASS = "inputWrapper";
   const wrapperClassNames = classNames(`${SUB_ROOT_CLASS}__suggestedWrapper`, {
@@ -88,8 +87,8 @@ export function NewInputWithChoiceTemplate({
         </div>
       </div>
       <div className={`${ROOT_CLASS}__tagWrapper`}>
-        {tags.map((item) => (
-          <div key={item} className="main">
+        {tags.map((item, i) => (
+          <div key={`${item}${i}`} className="main">
             <div className="tag">
               <div className="name">{item}</div>
               <div className="iconWrapper">
