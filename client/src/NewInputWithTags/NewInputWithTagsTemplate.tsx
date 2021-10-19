@@ -1,6 +1,8 @@
 import React from "react";
 import style from "./newinputWithChoice.module.scss";
 
+import "../inputs.scss";
+const classNames = require("classnames");
 interface Props {
   isItemsShown: boolean;
   items: string[];
@@ -29,69 +31,71 @@ export function NewInputWithChoiceTemplate({
   onDeleteTag,
 }: Props) {
   let isSelectedItems = !!selectedItems.length;
+  const ROOT_CLASS = "inputControl";
+  const SUB_ROOT_CLASS = "inputWrapper";
+  const wrapperClassNames = classNames(`${SUB_ROOT_CLASS}__suggestedWrapper`, {
+    active: isItemsShown && isSelectedItems,
+  });
+  const suggestedClassNames = classNames(
+    `${SUB_ROOT_CLASS}__suggestedWrapper`,
+    "suggested",
+    {
+      active: isItemsShown && isSelectedItems,
+    }
+  );
 
   return (
-    <div style={{ height: `36px` }} className={style.inputControl}>
-      <div className={style.inputControl__title}>
+    <div style={{ height: `36px` }} className={ROOT_CLASS}>
+      <div className={`${ROOT_CLASS}__title`}>
         <label htmlFor={`${title}`}>{title}</label>
       </div>
-      <div className={style.inputControl__textareaWrapper}>
-        <div className={style.inputControl__textarea}>
-          <div>
-            <div className={style.inputWrapper}>
-              <input
-                ref={inputRef}
-                id={title}
-                value={textValue}
-                onChange={onInputChange}
-                onKeyDown={onEnterPressed}
-                onBlur={toggleItemsVisibility}
-                onFocus={toggleItemsVisibility}
-                placeholder="добавить тэги"
-                type="text"
-              />
-              {
-                <div className={style.enterIcon}>
-                  <div className={style.icon}></div>
-                </div>
-              }
-              <div className={style.hint}></div>
+      <div className={SUB_ROOT_CLASS}>
+        <div className={`${SUB_ROOT_CLASS}__textarea`}>
+          <div className={`${SUB_ROOT_CLASS}__textarea inputWrapper`}>
+            <input
+              ref={inputRef}
+              id={title}
+              value={textValue}
+              onChange={onInputChange}
+              onKeyDown={onEnterPressed}
+              onBlur={toggleItemsVisibility}
+              onFocus={toggleItemsVisibility}
+              placeholder="добавить тэги"
+              type="text"
+            />
+            <div className="enterIcon">
+              <div className="icon"></div>
             </div>
           </div>
-          <div
-            className={`${style.suggestedWrapper} ${
-              isItemsShown && isSelectedItems && style.active
-            }`}
-          >
-            <div
-              className={`${style.suggested} ${
-                isItemsShown && isSelectedItems && style.active
-              }`}
-            >
-              {selectedItems.map((item) => {
-                return (
-                  <div
-                    key={item}
-                    onMouseDown={itemOnClick}
-                    className={style.suggestedItem}
-                  >
-                    {item}
-                  </div>
-                );
-              })}
+
+          {isItemsShown && isSelectedItems && (
+            <div className={wrapperClassNames}>
+              <div className={suggestedClassNames}>
+                {selectedItems.map((item) => {
+                  return (
+                    <div
+                      key={item}
+                      onMouseDown={itemOnClick}
+                      className="suggestedItem"
+                    >
+                      {item}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
-      <div className={style.tagWrapper}>
+      <div className={`${ROOT_CLASS}__tagWrapper`}>
         {tags.map((item) => (
-          <div key={item} className={style.main}>
-            <div className={style.tag}>
-              <div className={style.name}>{item}</div>
-              <div className={style.iconWrapper}>
+          <div key={item} className="main">
+            <div className="tag">
+              <div className="name">{item}</div>
+              <div className="iconWrapper">
                 <div
                   onClick={() => onDeleteTag(item)}
-                  className={style.tagIcon}
+                  className="tagIcon"
                 ></div>
               </div>
             </div>
