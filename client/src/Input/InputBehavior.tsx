@@ -40,7 +40,6 @@ export class InputBehaviour extends React.Component<Props, State> {
       isRequired,
       characterLimit,
       onInputChange: this.onInputChange,
-      setText: this.setText,
     });
   }
   public onInputChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
@@ -53,5 +52,4 @@ export class InputBehaviour extends React.Component<Props, State> {
       areaHeight: e.target.scrollHeight,
     });
   }
-  public setText() {}
 }
