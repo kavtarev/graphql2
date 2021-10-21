@@ -86,8 +86,12 @@ export class NewInputWithTagsBehaviour extends React.Component<Props, State> {
 
     public onEnterPressed(e: React.KeyboardEvent<HTMLInputElement>) {
         if (e.key === 'Enter' && e.currentTarget.value !== '') {
+            let isAlreadyInTags =
+                this.state.tags.indexOf(e.currentTarget.value) !== -1
             this.setState({
-                tags: [...this.state.tags, e.currentTarget.value],
+                tags: isAlreadyInTags
+                    ? [...this.state.tags]
+                    : [...this.state.tags, e.currentTarget.value],
                 textValue: '',
             })
             this.inputRef.current?.blur()
