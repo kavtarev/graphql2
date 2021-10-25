@@ -1,24 +1,23 @@
 .App {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 body {
-  background: #fff;
-  font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial,
-    "Lucida Grande", sans-serif;
-  font-size: 14px;
-  line-height: 1em;
-  color: #555;
-  position: relative;
+    background: #fff;
+    font-family: 'Helvetica Neue', 'HelveticaNeue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    font-size: 14px;
+    line-height: 1em;
+    color: #555;
+    position: relative;
 }
 
 .forinput {
-  margin-top: 400px;
-  max-width: 800px;
+    margin-top: 400px;
+    max-width: 800px;
 }
 .inputWithChoiceWrapper {
-  position: relative;
-  top: 0px;
-  right: 300px;
+    position: relative;
+    top: 0px;
+    right: 300px;
 }
