@@ -1,0 +1,148 @@
+.app-header {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  transition: all 0.5s ease-in-out;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  transition: all 0.3s linear;
+}
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+.header-row-search {
+  width: 1.25em;
+  height: 1.25em;
+  position: absolute;
+  left: 0.9375em;
+  top: 0.9375em;
+}
+.header-row-search svg {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  stroke-width: 1.5;
+}
+.header-row-search .doubled {
+  opacity: 0;
+}
+
+@media (max-width: 1023px) {
+  .header-logo-wrap {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s linear;
+  }
+}
+.header-logo-wrap {
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  top: 0.9375em;
+}
+.header-logo {
+  width: auto;
+  height: 1.5em;
+  display: inline-block;
+}
+.header-logo svg {
+  width: auto;
+  stroke-width: 0;
+}
+.hamburger {
+  width: 1.25em;
+  height: 1.25em;
+  top: 0.9375em;
+  cursor: pointer;
+}
+.hamburger,
+.header-search {
+  position: absolute;
+  right: 0.9375em;
+}
+.hamburger svg {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  stroke-width: 1.5;
+}
+svg {
+  vertical-align: bottom;
+  width: 100%;
+  height: 100%;
+}
+.hamburger .doubled {
+  opacity: 0;
+}
+@media (min-width: 1024px) {
+    header{
+        padding-right: 17px;
+    }
+  .hamburger:hover .origin {
+    top: 65%;
+  }
+  .hamburger:hover .doubled {
+    opacity: 1;
+    top: 35%;
+  }    
+  .buy-btn .ico, .hamburger, .header-row-search, .play-btn .ico {
+    width: 1.875em;
+    height: 1.875em;
+}
+    .header-row-search:hover .origin {
+        left: 40%;
+        top: 60%;
+    }
+    .header-row-search:hover .doubled {
+        opacity: 1;
+        left: 60%;
+        top: 40%;
+    }
+
+.header-logo {
+    height: 2.4375em;
+}
+.header-row-search {
+    width: 1.875em;
+    height: 1.875em;
+    top: 1.25em;
+    left: 1.25em;
+}
+.header-row-search svg {
+    transition: all .2s ease-in;
+}
+.header-logo-wrap {
+    top: 1.25em;
+}
+.header-logo {
+    width: auto;
+    height: 2.4375em;
+}
+.hamburger {
+    width: 1.875em;
+    height: 1.875em;
+    top: 1.25em;
+    right: 1.25em;
+}
+.hamburger svg {
+    transition: all .2s ease-in;
+}
+}
+@media screen and (min-width: 768px) and (max-width: 1023px){
+    .buy-btn .ico, .hamburger, .header-row-search, .play-btn .ico {
+        width: 1.875em;
+        height: 1.875em;
+    }
+    .header-logo {
+        height: 2.4375em;
+    }
+}

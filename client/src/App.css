@@ -1,23 +1,45 @@
 .App {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200vh;
+  scroll-behavior: smooth;
+  font-size: 5vw;
+  
 }
-body {
-    background: #fff;
-    font-family: 'Helvetica Neue', 'HelveticaNeue', Helvetica, Arial, 'Lucida Grande', sans-serif;
-    font-size: 14px;
-    line-height: 1em;
-    color: #555;
-    position: relative;
-}
+/* body {
+  background: #fff;
+  font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial,
+    "Lucida Grande", sans-serif;
+  font-size: 14px;
+  line-height: 1em;
+  color: #555;
+  position: relative;
+  height: 100vh;
+  scroll-behavior: smooth;
+} */
 
 .forinput {
-    margin-top: 400px;
-    max-width: 800px;
+  margin-top: 400px;
+  max-width: 800px;
 }
 .inputWithChoiceWrapper {
-    position: relative;
-    top: 0px;
-    right: 300px;
+  position: relative;
+  top: 0px;
+  right: 300px;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1023px){
+.App {
+    font-size: 16px;
+}}
+
+@media (min-width:1024px){
+  .App {
+    font-size: 1.1111111111111112vw;
+}
+}
+@media screen and (min-width: 1441px){
+.App {
+    font-size: 16px;
+}}
