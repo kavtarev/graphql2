@@ -1,3 +1,7 @@
+@font-face {
+    font-family: xep;
+    src: url('../src/font/DrukCyr-Medium.ttf') format('truetype');
+}
 .inputControl {
     width: 840px;
     height: 42px;
@@ -33,7 +37,7 @@
             border: none;
             outline: none;
 
-            font-family: Arial, sans-serif;
+            font-family: xep, Arial, sans-serif;
             font-size: 14px;
             color: #000000;
             background-color: transparent;
