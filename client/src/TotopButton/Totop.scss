@@ -21,7 +21,12 @@
     height: 100%;
   }
 }
+.btn{
 
+}
+.down{
+  animation: moveDown 1s;
+}
 @media screen and (min-width: 1024px) {
   .to-top {
     left: 1.25em;
@@ -41,4 +46,8 @@
     bottom: 15px;
   }
 }
-
+@keyframes moveDown {
+0%{bottom:15px}
+100%{bottom: -15px;}
+  
+}

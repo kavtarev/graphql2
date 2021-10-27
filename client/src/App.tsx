@@ -8,6 +8,8 @@ import { NewInputWithTagsBehaviour } from './NewInputWithTags/NewInputWithTagsBe
 import { PulseButtonTemplate } from './PulseButton/PulseButtonTemplate';
 import { TotopButtonTemplate } from './TotopButton/TotopButtonTemplate';
 import { FloatHeaderTemplate } from './FloatHeader/FloatHeaderTemplate';
+import { UnmountBehaviour2 } from './tryUnmount/UnmountBehaviour';
+import { Parent } from './Cheat/Cheat';
 
 let items = [
   'ab',
@@ -73,6 +75,7 @@ function App() {
   const [age, setage] = useState<number>();
   const [trash, setTrash] = useState('trash');
   const [state, setstate] = useState<string | null>();
+  const [show,setShow]=useState(true)
   console.log(data);
   console.log('newOne: ', newsUser);
   useEffect(() => {
@@ -100,9 +103,20 @@ function App() {
       console.log(data);
     });
   };
-
+  
   return (
+    <div>
+       <div className="post__title-interest">
+        <span className="bold-string ticker">
+          <span>Вам будет интересно</span>
+          <span>Вам будет интересно</span>
+          <span>Вам будет интересно</span>
+          <span>Вам будет интересно</span>
+          <span>Вам будет интересно</span>
+        </span>
+      </div>
     <div className="App">
+     
       <FloatHeaderTemplate />
       {/* <div>
         <form onSubmit={handleSubmit}>
@@ -166,8 +180,12 @@ function App() {
         <DebouncedInput />
         
       </div> */}
+      <Parent/>
       <PulseButtonTemplate />
       <TotopButtonTemplate />
+      <button onClick={()=>{setShow(!show)}}>toggle button</button>
+      <UnmountBehaviour2/>
+    </div>
     </div>
   );
 }
