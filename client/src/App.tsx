@@ -10,115 +10,110 @@ import { TotopButtonTemplate } from './TotopButton/TotopButtonTemplate';
 import { FloatHeaderTemplate } from './FloatHeader/FloatHeaderTemplate';
 import { UnmountBehaviour2 } from './tryUnmount/UnmountBehaviour';
 import { Parent } from './Cheat/Cheat';
+import { CarouselBehaviour } from './Carousel/CarouselBehaviour';
 
 let items = [
-  'ab',
-  'df',
-  'aa',
-  'asd',
-  'asds',
-  'asdfge',
-  'aaaaa',
-  'abdfg',
-  'bfd',
-  'bdsf',
-  'hfgfdg',
-  'dfg',
-  'sdf',
-  'sdfsdfsd',
+    'ab',
+    'df',
+    'aa',
+    'asd',
+    'asds',
+    'asdfge',
+    'aaaaa',
+    'abdfg',
+    'bfd',
+    'bdsf',
+    'hfgfdg',
+    'dfg',
+    'sdf',
+    'sdfsdfsd',
 ];
 interface User {
-  username: string;
-  age: number;
-  id: number;
+    username: string;
+    age: number;
+    id: number;
 }
 
 const GET_ALL_USERS = gql`
-  query {
-    getAllUsers {
-      id
-      username
-      age
+    query {
+        getAllUsers {
+            id
+            username
+            age
+        }
     }
-  }
 `;
 // mutation can be named whatever???
 
 const CREATE_USER = gql`
-  mutation createUserHuinaMilo($input: UserInput) {
-    createUser(input: $input) {
-      id
-      username
-      age
+    mutation createUserHuinaMilo($input: UserInput) {
+        createUser(input: $input) {
+            id
+            username
+            age
+        }
     }
-  }
 `;
 const GET_USER = gql`
-  query getUser2333($id: ID) {
-    getUser(id: $id) {
-      id
-      username
+    query getUser2333($id: ID) {
+        getUser(id: $id) {
+            id
+            username
+        }
     }
-  }
 `;
 
 function App() {
-  const { data, loading, error } = useQuery(GET_ALL_USERS);
-  const {
-    data: newsUser,
-    loading: lodf,
-    error: df,
-  } = useQuery(GET_USER, { variables: { id: 1 } });
-  const [newUser] = useMutation(CREATE_USER);
-  const [users, setUsers] = useState<any[]>([]);
-  const [username, setusername] = useState<string>('');
-  const [age, setage] = useState<number>();
-  const [trash, setTrash] = useState('trash');
-  const [state, setstate] = useState<string | null>();
-  const [show,setShow]=useState(true)
-  console.log(data);
-  console.log('newOne: ', newsUser);
-  useEffect(() => {
-    if (!loading) {
-      setUsers(data.getAllUsers);
+    const { data, loading, error } = useQuery(GET_ALL_USERS);
+    const {
+        data: newsUser,
+        loading: lodf,
+        error: df,
+    } = useQuery(GET_USER, { variables: { id: 1 } });
+    const [newUser] = useMutation(CREATE_USER);
+    const [users, setUsers] = useState<any[]>([]);
+    const [username, setusername] = useState<string>('');
+    const [age, setage] = useState<number>();
+    const [trash, setTrash] = useState('trash');
+    const [state, setstate] = useState<string | null>();
+    const [show, setShow] = useState(true);
+    console.log(data);
+    console.log('newOne: ', newsUser);
+    useEffect(() => {
+        if (!loading) {
+            setUsers(data.getAllUsers);
+        }
+    }, [data]);
+    if (loading) {
+        return <h1>'LOADING...'</h1>;
     }
-  }, [data]);
-  if (loading) {
-    return <h1>'LOADING...'</h1>;
-  }
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(34);
-  };
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        console.log(34);
+    };
 
-  const addUser = () => {
-    newUser({
-      variables: {
-        input: {
-          username,
-          age,
-        },
-      },
-    }).then(({ data }) => {
-      console.log(data);
-    });
-  };
-  
-  return (
-    <div>
-       <div className="post__title-interest">
-        <span className="bold-string ticker">
-          <span>Вам будет интересно</span>
-          <span>Вам будет интересно</span>
-          <span>Вам будет интересно</span>
-          <span>Вам будет интересно</span>
-          <span>Вам будет интересно</span>
-        </span>
-      </div>
-    <div className="App">
-     
-      <FloatHeaderTemplate />
-      {/* <div>
+    const addUser = () => {
+        newUser({
+            variables: {
+                input: {
+                    username,
+                    age,
+                },
+            },
+        }).then(({ data }) => {
+            console.log(data);
+        });
+    };
+
+    return (
+        <div>
+            <div className="App">
+                <div className="govno"></div>
+                <CarouselBehaviour />
+
+                <div>sdfsdfsdf</div>
+                {/* <FloatHeaderTemplate /> */}
+                {/* <div>
         <form onSubmit={handleSubmit}>
           <input
             onChange={(e) => {
@@ -161,7 +156,7 @@ function App() {
           ))}
         </div>
       </div> */}
-      {/*   <div className="forinput">
+                {/*   <div className="forinput">
         <InputBehaviour
           title="Заголовок"
           error={true}
@@ -180,14 +175,14 @@ function App() {
         <DebouncedInput />
         
       </div> */}
-      <Parent/>
+                {/*    <Parent/>
       <PulseButtonTemplate />
       <TotopButtonTemplate />
       <button onClick={()=>{setShow(!show)}}>toggle button</button>
-      <UnmountBehaviour2/>
-    </div>
-    </div>
-  );
+      <UnmountBehaviour2/> */}
+            </div>
+        </div>
+    );
 }
 
 export default App;
