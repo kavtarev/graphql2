@@ -2,6 +2,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    height: 200vh;
     scroll-behavior: smooth;
     font-size: 5vw;
     box-sizing: border-box;

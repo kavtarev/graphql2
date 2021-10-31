@@ -1,0 +1,154 @@
+.wrap {
+    -webkit-text-size-adjust: 100%;
+    font-family: Suisse Int, sans-serif;
+    font-weight: 400;
+    line-height: 1;
+    font-size: 5vw;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    outline: none !important;
+    margin-bottom: -25px;
+    position: relative;
+    z-index: 1;
+    .span {
+        -webkit-text-size-adjust: 100%;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        outline: none !important;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        font: 1.4375em/1.3 Druk Wide Cy;
+        text-transform: uppercase;
+        letter-spacing: -0.025em;
+        color: #000;
+        span {
+            -webkit-text-size-adjust: 100%;
+            white-space: nowrap;
+            font: 1.4375em/1.3 Druk Wide Cy;
+            text-transform: uppercase;
+            color: #000;
+            letter-spacing: normal;
+            font-weight: 500;
+            line-height: 1.3;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            outline: none !important;
+            margin-right: 0.3125em;
+            display: inline-block;
+            animation: scroll 6s linear 0.3s infinite;
+            font-size: 36px;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .wrap {
+        -webkit-text-size-adjust: 100%;
+        font-family: Suisse Int, sans-serif;
+        font-weight: 400;
+        line-height: 1;
+        font-size: 16px;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        outline: none !important;
+        margin-bottom: -25px;
+        position: relative;
+        z-index: 1;
+        .span {
+            -webkit-text-size-adjust: 100%;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            outline: none !important;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            font: 1.4375em/1.3 Druk Wide Cy;
+            text-transform: uppercase;
+            letter-spacing: -0.025em;
+            color: #000;
+            font-size: 2.75em;
+            span {
+                -webkit-text-size-adjust: 100%;
+                white-space: nowrap;
+                font: 1.4375em/1.3 Druk Wide Cy;
+                text-transform: uppercase;
+                color: #000;
+                letter-spacing: normal;
+                font-weight: 500;
+                line-height: 1.3;
+                box-sizing: border-box;
+                -webkit-font-smoothing: antialiased;
+                outline: none !important;
+                margin-right: 0.3125em;
+                display: inline-block;
+                animation: scroll 6s linear 0.3s infinite;
+                font-size: 36px;
+            }
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .wrap {
+        -webkit-text-size-adjust: 100%;
+        font-family: Suisse Int, sans-serif;
+        font-weight: 400;
+        line-height: 1;
+        font-size: 1.1111111111111112vw;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        outline: none !important;
+        margin-bottom: -25px;
+        position: relative;
+        z-index: 1;
+        .span {
+            -webkit-text-size-adjust: 100%;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            outline: none !important;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            font: 1.4375em/1.3 Druk Wide Cy;
+            text-transform: uppercase;
+            color: #000;
+            font-size: 3.25em;
+            letter-spacing: normal;
+            font-weight: 500;
+            line-height: 1.3;
+            span {
+                -webkit-text-size-adjust: 100%;
+                white-space: nowrap;
+                font: 1.4375em/1.3 Druk Wide Cy;
+                text-transform: uppercase;
+                color: #000;
+                letter-spacing: normal;
+                font-weight: 500;
+                line-height: 1.3;
+                box-sizing: border-box;
+                -webkit-font-smoothing: antialiased;
+                outline: none !important;
+                margin-right: 0.3125em;
+                display: inline-block;
+                animation: scroll 6s linear 0.3s infinite;
+                font-size: 36px;
+            }
+        }
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translate(0);
+    }
+    100% {
+        transform: translate(-100%);
+    }
+}
