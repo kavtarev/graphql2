@@ -15,6 +15,7 @@ import { BannerTemplate } from './CommonTemplates/Banner/Banner/BannerTemplate';
 import { ArticleLineTemplate } from './CommonTemplates/Banner/Banner/ArticleLine/ArticleLineTemplate';
 import { SearchBarBehaviour } from './ Search/SearchBehaviour';
 import { SearchBarTemplate } from './ Search/SearchBarTemplate';
+import { FloatHeaderBehaviour } from './FloatHeader/FloatHeaderBehaviour';
 
 let items = [
     'ab',
@@ -114,9 +115,8 @@ function App() {
             <div className="App">
                 <div className="govno"></div>
                 <SearchBarTemplate />
-                <FloatHeaderTemplate />
+                <FloatHeaderBehaviour isArticle={true}/>
                 <CarouselBehaviour />
-
                 <BannerTemplate />
                 <ArticleLineTemplate />
                 <TotopButtonTemplate />

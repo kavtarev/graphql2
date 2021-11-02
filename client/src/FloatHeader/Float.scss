@@ -3,13 +3,33 @@
   filter: alpha(opacity=100);
   transition: all 0.5s ease-in-out;
 }
+.bigF{
+  display: none;
+}
+.hide{
+  top:-60px;
+}
+header {
+  transition: transform 0.4s;
+}
+
+.scroll-down .app-header{
+  transform: translate3d(0, -60px, 0);
+  opacity: 0;
+}
+
+.scroll-up .app-header{
+  transform: none;
+}
+
+
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 10;
-  transition: all 0.3s linear;
+  //transition: all 0.3s linear;
 }
 .header-row {
   display: flex;
@@ -43,12 +63,15 @@ header {
   }
 }
 .header-logo-wrap {
+  transform-origin:center;
   position: absolute;
   transform: translateX(-50%);
   left: 50%;
   top: 0.9375em;
+  transition: all 0.35s;
 }
 .header-logo {
+  transform-origin:center;
   width: auto;
   height: 1.5em;
   display: inline-block;
@@ -83,9 +106,30 @@ svg {
 .hamburger .doubled {
   opacity: 0;
 }
+
+
+
 @media (min-width: 1024px) {
+  .bigF{
+    display: block;
+  }
+  .scroll-down .app-header{
+    transform: none;
+    opacity: 1!important;
+    g{stroke: #000!important;}
+  path{fill: #000 !important;}
+  
+  }
+  .scroll-up .app-header{
+    transform: none;
+  
+  }
     header{
         padding-right: 17px;
+    }
+    .hide{
+      opacity: 0;
+      top:0px;
     }
   .hamburger:hover .origin {
     top: 65%;
@@ -107,6 +151,18 @@ svg {
         left: 60%;
         top: 40%;
     }
+    .onlyF{
+      transform: rotateY(90deg);
+    }
+    .onlyF .active{
+      transform: rotateY(-90deg);
+    }
+    .onlyString{
+      transform-origin:center;
+     
+      transform: translateX(-50%) rotateY(-90deg);
+    
+    }
 
 .header-logo {
     height: 2.4375em;
@@ -121,6 +177,7 @@ svg {
     transition: all .2s ease-in;
 }
 .header-logo-wrap {
+  transform-origin:center;
     top: 1.25em;
 }
 .header-logo {
@@ -133,6 +190,9 @@ svg {
     top: 1.25em;
     right: 1.25em;
 }
+  header.isWindows {
+    padding-right: 17px;
+  }
 .hamburger svg {
     transition: all .2s ease-in;
 }
@@ -145,4 +205,12 @@ svg {
     .header-logo {
         height: 2.4375em;
     }
+  /*   .header-about path, .header-about svg, .header-index path, .header-index svg, .header-rubric path, .header-rubric svg, .header-user-id-author path, .header-user-id-author svg {
+     // fill: #fff!important;
+  } */
+}
+
+@media (max-width:767px){
+  g{stroke: #000!important;}
+  path{fill: #000 !important;}
 }
