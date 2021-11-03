@@ -11,19 +11,24 @@
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 11;
+
     width: 100%;
     height: 100%;
-    z-index: 11;
+    
 }
 
 .popup-container {
     position: fixed;
     top: 0;
     left: 0;
+    overflow: auto;
+
     width: 100%;
     height: 100%;
+
     background: #fff;
-    overflow: auto;
+    
 }
 .search-popup {
     height: 100%;
@@ -33,9 +38,11 @@
     padding-top: 3.75em;
 }
 .search-popup-body {
+    overflow: auto;
+
     height: 100%;
     padding-top: 2.5em;
-    overflow: auto;
+    
 }
 .scrollable-el {
     overflow-x: hidden !important;
@@ -44,23 +51,31 @@
 .search-area {
     display: flex;
     align-items: center;
-    margin: 0 0.9375em;
     position: relative;
+
+    margin: 0 0.9375em;
+    
 }
 .search-area input,
 .search-area textarea {
+    resize: none;
+    overflow: hidden;
+
     width: 100%;
     height: 2.5em;
     padding: 0.625em 2.1875em 0.625em 0.875em;
+
+    border: 1 px solid #000;
+    border-top: none;
+    border-bottom: none;
+
     font: 1.125em / 1.39 Druk Text Wide Cy;
     color: #000;
     letter-spacing: -0.4px;
     text-transform: uppercase;
-    border: 1 px solid #000;
-    border-top: none;
-    border-bottom: none;
-    resize: none;
-    overflow: hidden;
+
+
+
     background: transparent;
 }
 .search-popular {
@@ -75,10 +90,12 @@
     color: #000;
 }
 .search-empty {
-    margin: 2.5em 0.9375em;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    margin: 2.5em 0.9375em;
+
 }
 .search-empty .emoji {
     margin-right: 0.625em;
@@ -91,10 +108,12 @@
 
 .result {
     position: relative;
+    overflow: hidden;
+
     width: 100%;
     height: 100%;
     padding-top: 3.75em;
-    overflow: hidden;
+    
 }
 .result:after,
 .result:before {
@@ -130,20 +149,24 @@
 }
 .set-gradient:after,
 .set-gradient:before {
+    position: absolute;
     content: '';
+
     height: 30em;
     width: 33.75em;
-    position: absolute;
+    
 }
 .result > div {
     position: relative;
 }
 .result-container {
-    height: 100%;
-    padding-top: 2.5em;
     overflow: auto;
     position: relative;
     z-index: 2;
+
+    height: 100%;
+    padding-top: 2.5em;
+    
 }
 .result-count-table {
     display: flex;
@@ -151,28 +174,36 @@
     margin-bottom: 5em;
 }
 .result-item {
-    width: 25%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-right: 1px solid rgba(0, 0, 0, 0.16);
+
+    width: 25%;
     height: 3.75em;
+
+    border-right: 1px solid rgba(0, 0, 0, 0.16);
+
     text-align: center;
     cursor: pointer;
 }
 .result-item span {
     display: block;
+
     width: 100%;
+
     font-size: 0.75em;
 }
 .search-area-btn {
     position: absolute;
-    top: 50%;
-    margin-top: -0.625em;
     right: 0.9375em;
+    top: 50%;
+
+    margin-top: -0.625em;
     padding: 0;
+
     border: none;
+
     background: transparent;
 }
 .cursor-pointer {
@@ -192,18 +223,22 @@
 .search-area-btn {
     position: absolute;
     top: 50%;
-    margin-top: -0.625em;
     right: 0.9375em;
+
+    margin-top: -0.625em;
     padding: 0;
+
     border: none;
+
     background: transparent;
 }
 @media screen and (min-width: 768px) {
     .posts-grid {
-        padding: 0 2.5em;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+
+        padding: 0 2.5em;
     }
 }
 @media screen and (min-width: 1024px) {
@@ -211,10 +246,12 @@
         padding-top: 0;
     }
     .search-popup-body {
-        padding-top: 0;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+
+        padding-top: 0;
+
     }
     .search-area {
         margin-top: auto;
@@ -222,12 +259,14 @@
     .search-area {
         width: 40em;
         height: 3.75em;
+
         margin: auto;
     }
     .search-popular {
         display: flex;
         align-items: center;
         justify-content: center;
+
         margin: auto 1.25em 2.5em;
     }
     .search-popular-title {
@@ -247,14 +286,17 @@
     .search-area {
         width: 40em;
         height: 3.75em;
+
         margin: 0 auto;
         margin-top: auto;
     }
     .posts-grid {
-        padding: 0 1.875em;
         flex-flow: row wrap;
         justify-content: space-between;
         position: relative;
         z-index: 1;
+        
+        padding: 0 1.875em;
+
     }
 }
