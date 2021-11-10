@@ -2,9 +2,13 @@
     opacity: 1;
     filter: alpha(opacity=100);
     transition: all 0.5s ease-in-out;
+    background-color: #fff!important;
+    width: 100%;
+    height: 60px;
 }
 .bigF {
     display: none;
+    transition: all 0.35s;
 }
 .hide {
     top: -60px;
@@ -168,9 +172,11 @@ svg {
     }
     .onlyF {
         transform: rotateY(90deg);
+        transition: all 0.5s;
     }
     .onlyF .active {
         transform: rotateY(-90deg);
+        transition: all 0.5s;
     }
     .onlyString {
         transform-origin: center;
@@ -186,6 +192,8 @@ svg {
 
         width: 1.875em;
         height: 1.875em;
+
+        cursor: pointer;
     }
     .header-row-search svg {
         transition: all 0.2s ease-in;
@@ -212,6 +220,9 @@ svg {
     .hamburger svg {
         transition: all 0.2s ease-in;
     }
+    .app-header{
+        background-color: transparent !important;
+    }
 }
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     .buy-btn .ico,
@@ -223,6 +234,9 @@ svg {
     }
     .header-logo {
         height: 2.4375em;
+    }
+    .app-header{
+        background-color: transparent !important;
     }
     /*   .header-about path, .header-about svg, .header-index path, .header-index svg, .header-rubric path, .header-rubric svg, .header-user-id-author path, .header-user-id-author svg {
      // fill: #fff!important;

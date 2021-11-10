@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import './carousel.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper'
@@ -9,16 +9,23 @@ import large from './large.jpg'
 SwiperCore.use([Autoplay, Navigation, Pagination])
 
 export const CarouselTemplate = () => {
+
     return (
         <>
             <div className='top-swiper'>
-                <Swiper
-                    autoplay={true}
+                <Swiper 
+                     autoplay={
+                      {  delay: 1000,
+                        disableOnInteraction: false,
+                        pauseOnMouseEnter:true,
+                      }}
+                      /* onAfterInit={(swiper)=>{setTimeout(()=>swiper.autoplay.stop(),5000)}} */
                     loop={true}
                     pagination={{ clickable: true }}
                     navigation={true}
-                    speed={2500}
                     id='main'
+                    onSlideChange={() => console.log('slide change')}
+                    
                 >
                     <SwiperSlide key={`slide-1`} tag='li'>
                         <a href='yandex.ru'>

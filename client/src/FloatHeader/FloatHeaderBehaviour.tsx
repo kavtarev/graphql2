@@ -6,7 +6,7 @@ interface Props {
 }
 
 interface State {
-    isScroll: boolean;
+    isScrolled: boolean;
     lastScroll: number;
 }
 
@@ -15,7 +15,7 @@ export class FloatHeaderBehaviour extends React.Component<Props, State> {
         super(props);
 
         this.state = {
-            isScroll: false,
+            isScrolled: false,
             lastScroll: 0,
         };
     }
@@ -31,14 +31,14 @@ export class FloatHeaderBehaviour extends React.Component<Props, State> {
         window.removeEventListener('scroll', this.moveHeader);
     }
     public render(): JSX.Element {
-        const { isScroll } = this.state;
+        const { isScrolled } = this.state;
         const { isArticle } = this.props;
         return (
-            <FloatHeaderTemplate isScroll={isScroll} isArticle={isArticle} />
+            <FloatHeaderTemplate isScrolled={isScrolled} isArticle={isArticle} />
         );
     }
     public scrollhandler = () => {
-        this.setState({ isScroll: !!window.scrollY });
+        this.setState({ isScrolled: !!window.scrollY });
     };
     public moveHeader = () => {
         const body = document.body;

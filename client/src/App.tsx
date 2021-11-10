@@ -113,13 +113,18 @@ function App() {
     return (
         <div>
             <div className="App">
-                <div className="govno"></div>
-                <SearchBarTemplate />
-                <FloatHeaderBehaviour isArticle={true}/>
+                
+               {/*  <SearchBarTemplate /> */}
+                <FloatHeaderBehaviour isArticle={false}/>
                 <CarouselBehaviour />
                 <BannerTemplate />
                 <ArticleLineTemplate />
                 <TotopButtonTemplate />
+                <PulseButtonTemplate/>
+                <div className="govno">
+                </div>
+
+                <div className='hover'>hover</div>
                 {/* <FloatHeaderTemplate /> */}
                 {/* <div>
         <form onSubmit={handleSubmit}>

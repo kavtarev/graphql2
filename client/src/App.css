@@ -7,10 +7,19 @@
     font-size: 5vw;
     box-sizing: border-box;
     width: 100wv;
+   
     
 }
-
-
+.govno{
+    background-image: url('./Carousel/2017Animals___Birds_Little_bird_kingfisher_on_a_branch_in_the_rain_115409_.jpg');
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    height: 400px;
+    background-attachment: fixed;
+}
+.hover:hover{
+    color:red;
+}
 /* body {
   background: #fff;
   font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial,
