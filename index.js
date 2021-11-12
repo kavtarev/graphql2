@@ -17,6 +17,8 @@ const createUser = (input) => {
     ...input,
   };
 };
+
+
 const root = {
   getAllUsers: () => {
     return users;
