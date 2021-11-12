@@ -1,0 +1,121 @@
+.episodes {
+    padding-bottom: 1px;
+
+    &__dropdown {
+        width: 209px;
+    }
+
+    &__no-episodes {
+
+        &-title {
+            margin-right: 20px;
+
+            opacity: 0.8;
+        }
+
+    }
+
+    &__list {
+
+        h1 {
+            margin-bottom: 20px;
+
+            font-size: 25px;
+            color: #000000;
+            line-height: 29px;
+        }
+
+        &-item {
+        }
+    }
+}
+
+.add-episode {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 35px 0;
+
+    width: max-content;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    &__img {
+        margin-right: 10px;
+
+        width: 24px;
+        height: 24px;
+    }
+
+    &__text {
+        font-size: 14px;
+        color: #F85238;
+    }
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.label-select {
+    display: flex;
+    justify-content: space-between;
+}
+
+.delete-season {
+    display: flex;
+    align-items: center;
+    margin: 35px 0;
+
+    width: max-content;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    &__img {
+        margin-right: 10px;
+
+        width: 24px;
+        height: 24px;
+    }
+
+    &__text {
+        font-size: 14px;
+        color: #F85238;
+    }
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.add-season {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: max-content;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    &__img {
+        margin-right: 10px;
+
+        width: 24px;
+        height: 24px;
+    }
+
+    &__text {
+        font-size: 14px;
+        color: #F85238;
+    }
+
+    &:hover {
+        opacity: 0.8;
+    }
+}

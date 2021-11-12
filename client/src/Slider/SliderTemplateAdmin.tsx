@@ -1,4 +1,6 @@
 import * as React from 'react'
+import { CreateFormTemplate } from './Forms/CreateForm/CreateFormTemplate'
+import { DeleteFormTemplate } from './Forms/DeleteForm/DeleteFormTemplate'
 
 interface Props {
     image: string
@@ -15,23 +17,39 @@ interface Props {
 export const SliderTemplateAdmin = (props: Props) => {
     const {
         isCreate,
-        image,
+       /*  image,
         sImage,
         text,
         textColor,
         buttonText,
         buttonTextColor,
-        buttonPosition,
+        buttonPosition, */
         toggleType,
     } = props
     return (
         <div>
-            <button onClick={toggleType} disabled={!isCreate}>
-                create
-            </button>
-            <button onClick={toggleType} disabled={isCreate}>
-                delete
-            </button>
+            
+            <div>
+                <button onClick={toggleType} disabled={isCreate}>
+                    create
+                </button>
+                <button onClick={toggleType} disabled={!isCreate}>
+                    delete
+                </button>
+            </div>
+                
+            <div>
+                {
+                    isCreate
+                    ? <CreateFormTemplate/>
+                    : <DeleteFormTemplate/>
+                }
+            </div>
+            <div>
+                <button >
+                    confirm
+                </button >
+            </div>
         </div>
     )
 }

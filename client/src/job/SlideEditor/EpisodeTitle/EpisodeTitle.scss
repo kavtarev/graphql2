@@ -1,0 +1,55 @@
+.episode-title {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    width: 580px;
+
+    &__text{
+        font-size: 14px;
+        color: #000000;
+        line-height: 22px;
+    }
+
+    &__action-panel {
+        box-sizing: border-box;
+        padding: 15px 0 15px 0;
+
+        width: 236px;
+
+        background-color: #FFFFFF;
+        border-radius: 2px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+
+        &-text {
+            padding-left: 25px;
+
+            height: 40px;
+
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            color: black;
+            text-decoration: none;
+            line-height: 40px;
+
+            cursor: pointer;
+
+            &:hover {
+                background-color: #f7f7f7;
+            }
+        }
+    }
+
+    &__icon-edit{
+        flex-shrink: 0;
+
+        width: 32px;
+        height: 32px;
+
+        background-image: url('/images/g-icon_auto-sprite.png');
+        background-position: -122px -34px;
+
+        cursor: pointer;
+    }
+}
+

@@ -1,0 +1,142 @@
+.EditFormEpisode {
+    box-sizing: border-box;
+    margin: 36px 0;
+    padding: 11px;
+
+    width: 590px;
+    height: auto;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+
+    &__info {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        margin: 13px 0;
+
+        &-title {
+            margin-right: 20px;
+            padding-top: 6px;
+
+            width: 73px;
+
+            font-size: 14px;
+            color: #8A8A8A;
+            line-height: 21px;
+        }
+
+        &-input {
+            box-sizing: border-box;
+            padding: 5px 12px 5px 12px;
+
+            width: 431px;
+
+            font-size: 14px;
+            line-height: 1.29;
+
+            border: 1px solid #e5e5e5;
+            border-radius: 3px;
+
+            &::-webkit-input-placeholder {
+                color: #8a8a8a;
+            }
+
+            &::-moz-placeholder {
+                color: #8a8a8a;
+            }
+
+            &:focus {
+                border-color: #F85238;
+                outline: none;
+            }
+        }
+
+        &-textarea {
+            width: 431px;
+
+            border: 1px solid #e5e5e5;
+
+            &_error {
+                border-color: red;
+            }
+
+            &.textarea-container  {
+
+                &.textarea-container_focused {
+                    border-color: red;
+                }
+
+                .textarea-container__textarea {
+                    font: 14px Arial, sans-serif;
+                    line-height: 1.29;
+
+                    &::-webkit-input-placeholder {
+                        color: #8a8a8a;
+                    }
+
+                    &::-moz-placeholder {
+                        color: #8a8a8a;
+                    }
+                }
+
+                .textarea-container__text-container {
+                    font: 14px Arial, sans-serif;
+                    line-height: 1.29;
+
+                    &::-webkit-input-placeholder {
+                        color: #8a8a8a;
+                    }
+
+                    &::-moz-placeholder {
+                        color: #8a8a8a;
+                    }
+                }
+            }
+
+            &:focus {
+                border-color: #F85238;
+                outline: none;
+            }
+        }
+    }
+
+    &__info-wrapper {
+        width: 430px;
+    }
+
+    &__errors {
+        width: inherit;
+
+        font-size: 12.9px;
+        color: red;
+    }
+
+    &__delete {
+        display: flex;
+        align-items: center;
+        margin: 13px 0 13px 22px;
+
+        width: max-content;
+
+        text-decoration: none;
+
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.8;
+        }
+
+        &-img {
+            margin-right: 10px;
+
+            width: 24px;
+            height: 24px;
+        }
+
+        &-text {
+            font-size: 14px;
+            color: #F85238;
+        }
+    }
+}
