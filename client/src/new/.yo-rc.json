@@ -1,0 +1,8 @@
+{
+  "generator-node-ts-microservice": {
+    "packageJsonName": "mel-backend-main",
+    "databaseName": "pablo_main_page",
+    "dockerBaseNodejsImageTag": "feature-FLC",
+    "entityName": "Slider"
+  }
+}
