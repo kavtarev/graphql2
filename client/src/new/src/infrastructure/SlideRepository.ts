@@ -8,7 +8,7 @@ import * as models from './models'
 
 @provide(Type.SlideRepository)
 export class SlideRepository {
-    @di.inject(Type.SlideRepository)
+    @di.inject(Type.SlideDataRepository)
     protected readonly slideDataRepository!: Repository<models.Slide>
 
     public async list() {
