@@ -11,23 +11,23 @@ import {
     Post,
     QueryParam,
     Res,
-} from 'routing-controllers'
-import { plainToClass, plainToClassFromExist } from 'class-transformer'
-import { Response } from 'express'
-import { Repository } from 'typeorm'
-import { di, rejectNanParam, ReturnSpecification } from '@melmedia/node-ts-framework'
-import { queryIdArray } from '@melmedia/rest-client'
+} from 'routing-controllers';
+import { plainToClass, plainToClassFromExist } from 'class-transformer';
+import { Response } from 'express';
+import { Repository } from 'typeorm';
+import { di, rejectNanParam, ReturnSpecification } from '@melmedia/node-ts-framework';
+import { queryIdArray } from '@melmedia/rest-client';
 
-import * as forms from '../forms'
-import * as models from '../../infrastructure/models'
-import { MainView } from '../views/MainView'
-import { Type } from '../../Type'
-import { SlideRepository } from '../../infrastructure/SlideRepository'
+import * as forms from '../forms';
+import * as models from '../../infrastructure/models';
+import { MainView } from '../views/MainView';
+import { Type } from '../../Type';
+import { SlideRepository } from '../../infrastructure/SlideRepository';
 
 @JsonController('/slide')
 export class SlideController {
-    @di.inject(Type.SlideRepository)
-    protected slideRepository!: SlideRepository
+  @di.inject(Type.SlideRepository)
+    protected slideRepository!: SlideRepository;
 
     /**
      * @apiDefine GetSlide
@@ -66,14 +66,14 @@ export class SlideController {
      */
 
     /* tslint:enable:max-line-length */
-    @Post('/')
+  @Post('/')
     @HttpCode(201)
     public async create(@BodyParam('slide', { required: true }) slideForm: forms.SlideForm) {
-        const main = plainToClass(models.Slide, slideForm)
+    const main = plainToClass(models.Slide, slideForm);
         /*  main.updateTime = new Date() */
-        await this.slideRepository.change(main)
-        return {}
-    }
+    await this.slideRepository.change(main);
+    return {};
+  }
 
     /* tslint:disable:max-line-length */
     /**
@@ -98,9 +98,9 @@ export class SlideController {
      */
 
     /* tslint:enable:max-line-length */
-    @Get('/')
+  @Get('/')
     public async list() {
-        const slide = await this.slideRepository.list()
-        return { slide }
-    }
+    const slide = await this.slideRepository.list();
+    return { slide };
+  }
 }
